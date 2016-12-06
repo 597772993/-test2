@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>♥️红太狼</title>
+	<style type="text/css">
+	#start{
+		width: 320px;
+		height: 480px;
+		position: relative;
+		margin: auto;
+		display: block;
+		
+	}
+
+	#begin{
+		font-size: 50px;-
+	    line-height: 50px;
+	    position: absolute;top: 200px;left: 60px;
+	    text-align: center;
+
+	}	
+
+	#warp{
+		width: 320px;
+		height: 480px;
+		margin: auto;
+		 position: relative;
+		display: none;
+	}
+	#score{
+		position: absolute;
+		top: 15px;left: 100px;
+		color: cyan;
+		font-size: 25;
+		z-index: 1;
+	}
+	#progress{
+		width: 180px;
+		height: 17px;
+		position: absolute;
+		left: 63px;
+		top: 65px;
+	}
+	
+	</style>
+</head>
+<body>
+<div id="start">
+<img src="img/myrank.jpg">
+<div id="begin">开始游戏</div>
+</div>
+
+<div id="warp" onselectstart="return false">
+<span id="score">0</span>
+<img id="bg" src="img/game.jpg"/>
+<img id="progress" src="img/progress.png"/>
+</div>
+</body>
+<script type="text/javascript">
+     
+		var warp = document.getElementById("warp");
+		
+		var score = document.getElementById("score");
+		
+		var start = document.getElementById("start");
+	
+		start.onclick = function(){
+			warp.style.display = 'block';
+			start.style.display = 'none';
+			begin();
+		}
+
+		function begin(){
+			var progress = document.getElementById("progress");
+			var tim = progress.offsetWidth;
+			var timer = setInterval(function(){
+				tim-=0.01;
+				if(tim<=0){
+					clearInterval(timer);
+				}
+				progress.style.width = tim + 'px';
+			},6)
+		}
+	</script>
+</html>
